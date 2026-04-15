@@ -3,6 +3,9 @@ import { ShoppingCart, Heart } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
+import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
   product: {
@@ -17,9 +20,40 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCart();
+  const { toggleWishlist, isInWishlist } = useWishlist();
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!product.availability) return;
+    
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.images[0],
+      quantity: 1,
+    });
+  };
+
+  const handleToggleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.images[0],
+      productType: product.productType,
+    });
+  };
+
+  const isFavorited = isInWishlist(product.id);
+
   return (
     <Card className="group relative border-none bg-transparent p-0 transition-all duration-500 hover:shadow-none translate-y-0 hover:-translate-y-2">
-      <Link to={`/product/${product.id}`} className="block relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f8f9fa] ring-1 ring-black/5 group-hover:ring-primary/20 transition-all duration-500">
+      <Link to={`/product/${product.id}`} className="block relative aspect-[4/5] overflow-hidden rounded-2xl bg-ice-blue ring-1 ring-black/5 group-hover:ring-primary/20 transition-all duration-500">
         {/* Main Product Image */}
         <img
           src={product.images[0]}
@@ -53,10 +87,24 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         {/* Quick Action Side Buttons */}
         <div className="absolute right-3 top-3 flex flex-col gap-2 z-30 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 delay-75">
-          <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full bg-white/95 backdrop-blur-md shadow-xl text-deep-slate hover:bg-primary hover:text-white transition-all ring-1 ring-black/5">
-            <Heart className="h-4 w-4" />
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className={cn(
+                "h-9 w-9 rounded-full bg-white/95 backdrop-blur-md shadow-xl transition-all ring-1 ring-black/5",
+                isFavorited ? "bg-primary text-white" : "text-deep-slate hover:bg-primary hover:text-white"
+            )}
+            onClick={handleToggleWishlist}
+          >
+            <Heart className={cn("h-4 w-4", isFavorited && "fill-current")} />
           </Button>
-          <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full bg-white/95 backdrop-blur-md shadow-xl text-deep-slate hover:bg-primary hover:text-white transition-all ring-1 ring-black/5">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="h-9 w-9 rounded-full bg-white/95 backdrop-blur-md shadow-xl text-deep-slate hover:bg-primary hover:text-white transition-all ring-1 ring-black/5"
+            onClick={handleAddToCart}
+            disabled={!product.availability}
+          >
             <ShoppingCart className="h-4 w-4" />
           </Button>
         </div>

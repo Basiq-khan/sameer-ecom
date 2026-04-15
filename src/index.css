@@ -49,32 +49,32 @@
 }
 
 :root {
-    --background: #f8fbff; /* Very light Ice Blue */
-    --foreground: #345989; /* Deep Slate Blue */
+    --background: #ffffff; /* White */
+    --foreground: #333333; /* Charcoal */
     --card: #ffffff;
-    --card-foreground: #345989;
+    --card-foreground: #333333;
     --popover: #ffffff;
-    --popover-foreground: #345989;
-    --primary: #345989;
+    --popover-foreground: #333333;
+    --primary: #333333;
     --primary-foreground: #ffffff;
-    --secondary: #8EA7C8; /* Soft Sky Blue */
-    --secondary-foreground: #ffffff;
-    --muted: #C0D1E8; /* Pale Blue */
-    --muted-foreground: #5879A4; /* Muted Blue */
-    --accent: #E7EEF9; /* Ice Blue */
-    --accent-foreground: #345989;
-    --destructive: #ef4444;
-    --border: #C0D1E8;
-    --input: #C0D1E8;
-    --ring: #5879A4;
-    --radius: 0.75rem;
+    --secondary: #e5e5e5; /* Light Grey */
+    --secondary-foreground: #333333;
+    --muted: #e5e5e5; /* Light Grey */
+    --muted-foreground: #666666; /* Medium Grey for contrast */
+    --accent: #e5e5e5; /* Light Grey */
+    --accent-foreground: #333333;
+    --destructive: #df1b1b;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #333333;
+    --radius: 0.5rem;
     
     /* Palette Aliases */
-    --deep-slate: #345989;
-    --muted-blue: #5879A4;
-    --soft-sky: #8EA7C8;
-    --pale-blue: #C0D1E8;
-    --ice-blue: #E7EEF9;
+    --deep-slate: #333333;
+    --muted-blue: #666666;
+    --soft-sky: #e5e5e5;
+    --pale-blue: #eeeeee;
+    --ice-blue: #f5f5f5;
 }
 
 @layer base {

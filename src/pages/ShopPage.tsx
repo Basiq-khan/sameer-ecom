@@ -15,9 +15,9 @@ import { cn } from "@/lib/utils";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/product";
 
-const MATERIALS = ["Silver", "Gold", "Platinum", "Malachite", "Turquoise", "Resin", "Quartz"];
-const STYLES = ["Korean Style", "Women's", "Minimalist", "Geometric", "Vintage", "Boho", "Elegant", "Bridal", "Celestial", "Healing Crystal", "Spiritual", "Statement", "Modern"];
-const CATEGORIES = ["Jewellery", "Pendants", "Necklaces", "Rings", "Earrings", "Bracelet", "Brooch Pin", "Ear Cuff"];
+const MATERIALS = ["ABS", "Silicone", "Aluminum Alloy", "Polycarbonate", "Fabric", "Steel", "Resin", "Natural Crystal", "Bamboo"];
+const STYLES = ["Modern", "Tech", "Minimalist", "Utility", "Essential", "Gaming", "Pro", "Eco-Friendly", "Beauty", "Athleisure", "Sporty", "Outdoor"];
+const CATEGORIES = ["Electronics", "Home & Garden", "Health & Beauty", "Sports & Fashion"];
 
 export default function ShopPage() {
   const [priceRange, setPriceRange] = useState([0, 100]);
@@ -57,7 +57,7 @@ export default function ShopPage() {
       // Category Filter (Jewellery is treated as a catch-all)
       if (selectedCategories.length > 0) {
         const matchesCategory = selectedCategories.some(c => 
-            c === "Jewellery" || product.productType === c
+            c === "All" || product.productType === c
         );
         if (!matchesCategory) return false;
       }
@@ -278,8 +278,8 @@ export default function ShopPage() {
                 <div className="h-16 w-16 bg-muted rounded-full flex items-center justify-center mb-6">
                     <X className="h-8 w-8 text-muted-foreground opacity-50" />
                 </div>
-                <h3 className="text-xl font-bold text-deep-slate italic">Aura not found</h3>
-                <p className="text-muted-foreground max-w-xs mt-2 text-sm italic">"Luxury is the ease of a t-shirt in a very expensive gown." - Try adjusting your filters.</p>
+                <h3 className="text-xl font-bold text-deep-slate italic">No products found</h3>
+                <p className="text-muted-foreground max-w-xs mt-2 text-sm italic">"The future belongs to those who believe in the beauty of their dreams." - Adjust your filters to find what you need.</p>
                 <Button variant="link" className="mt-6 text-primary font-black uppercase tracking-widest text-xs" onClick={resetFilters}>
                     Clear all filters
                 </Button>

@@ -7,9 +7,9 @@ const FAQ_DATA = [
     category: "Curation & Orders",
     icon: <ShoppingBag className="h-5 w-5" />,
     items: [
-      { q: "How are the pieces curated?", a: "Every piece at Sameer Ecom is hand-selected by our master curators in New York and Paris, focusing on exceptional craftsmanship and ethical sourcing." },
-      { q: "Do you offer custom commissions?", a: "Yes, our master artisans are available for bespoke creations. Please contact our Concierge for a private consultation." },
-      { q: "Can I modify my order?", a: "Once an identity vault entry (order) is dispatched, modifications are restricted to maintain security. Contact us immediately for urgent changes." }
+      { q: "How are products selected?", a: "Every product at Cubicus Store is meticulously vetted for engineering excellence and aesthetic appeal, sourcing the best trending items from our global partners." },
+      { q: "Do you offer international shipping?", a: "Yes, we ship to over 100 countries. Our global logistics network ensures fast and secure delivery to your doorstep." },
+      { q: "Can I modify my order?", a: "Orders are processed rapidly to ensure fast delivery. Please contact support immediately if you need to make changes before dispatch." }
     ]
   },
   {
@@ -25,7 +25,7 @@ const FAQ_DATA = [
     icon: <ShieldCheck className="h-5 w-5" />,
     items: [
       { q: "What is the Lifetime Warranty?", a: "We stand by our craftsmanship. Any structural defect in our pieces is covered by a lifetime repair guarantee." },
-      { q: "Is my payment secure?", a: "Sameer Ecom uses high-grade SSL encryption and multi-factor identity verification to ensure your vault transactions are fully protected." }
+      { q: "Is my payment secure?", a: "Cubicus Store uses industry-leading SSL encryption and secure payment gateways to ensure your transactions are fully protected." }
     ]
   }
 ];
@@ -35,8 +35,8 @@ export default function FAQPage() {
     <div className="container-standard py-20 lg:py-32 animate-in fade-in slide-in-from-bottom-4 duration-1000">
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="text-center space-y-6">
-            <h1 className="text-5xl font-black text-deep-slate tracking-tight uppercase italic">Curator's Journal (FAQ)</h1>
-            <p className="text-muted-foreground italic text-lg max-w-2xl mx-auto leading-relaxed">Explore our archives for answers to common inquiries regarding our craftsmanship, logistics, and identity security.</p>
+            <h1 className="text-5xl font-black text-deep-slate tracking-tight uppercase italic">Customer FAQ</h1>
+            <p className="text-muted-foreground italic text-lg max-w-2xl mx-auto leading-relaxed">Find answers to common questions about our products, shipping, and security policies.</p>
         </div>
 
         <div className="space-y-12">
@@ -75,10 +75,10 @@ export default function FAQPage() {
             <div className="absolute inset-0 bg-primary/5 -translate-y-full group-hover:translate-y-0 transition-transform duration-1000" />
             <div className="relative z-10 space-y-4">
                 <MessageCircle className="h-10 w-10 text-soft-sky mx-auto" />
-                <h3 className="text-2xl font-black text-white italic">Aura not found?</h3>
-                <p className="text-white/60 italic max-w-md mx-auto text-sm leading-relaxed">If you cannot find your answer in our journal, our master curators are available via live chat or concierge email.</p>
+                <h3 className="text-2xl font-black text-white italic">Need more help?</h3>
+                <p className="text-white/60 italic max-w-md mx-auto text-sm leading-relaxed">If you cannot find your answer here, our dedicated support team is available via live chat or email to assist you.</p>
                 <div className="pt-4">
-                    <Button variant="outline" className="bg-white text-deep-slate font-black text-[10px] uppercase tracking-widest hover:bg-soft-sky hover:text-white transition-all shadow-xl h-10 px-8">Consult Curator</Button>
+                    <Button variant="outline" className="bg-white text-deep-slate font-black text-[10px] uppercase tracking-widest hover:bg-soft-sky hover:text-white transition-all shadow-xl h-10 px-8">Contact Support</Button>
                 </div>
             </div>
         </div>

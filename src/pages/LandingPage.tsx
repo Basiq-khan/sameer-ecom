@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, ShieldCheck, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
   CarouselContent,
@@ -14,15 +13,15 @@ import { products } from "@/data/product";
 
 const HERO_SLIDES = [
   {
-    title: "Luxury Jewellery Collection",
-    subtitle: "Where Elegance Meets Timeless Craftsmanship",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070&auto=format&fit=crop",
-    cta: "Shop Now",
+    title: "Premium Tech & Lifestyle",
+    subtitle: "Discover the Most Reliable and High-Demand Products from Our Global Partners",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    cta: "Shop The Curated List",
   },
   {
-    title: "Minimalist Elegance",
-    subtitle: "Discover Our New Teardrop Series",
-    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=2070&auto=format&fit=crop",
+    title: "Sustainable Daily Essentials",
+    subtitle: "Eco-Friendly Innovations Crafted for the Modern Minimalist",
+    image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=2070&auto=format&fit=crop",
     cta: "View Collection",
   },
 ];
@@ -76,9 +75,9 @@ export default function LandingPage() {
       <section className="container-standard">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 rounded-2xl bg-white p-8 shadow-xl shadow-primary/5 border">
           {[
-            { icon: <Truck className="h-8 w-8 text-soft-sky" />, title: "Free Shipping", desc: "On orders over $99" },
-            { icon: <ShieldCheck className="h-8 w-8 text-soft-sky" />, title: "Secure Checkout", desc: "100% protected payments" },
-            { icon: <Star className="h-8 w-8 text-soft-sky" />, title: "Premium Quality", desc: "Handcrafted with love" }
+            { icon: <Truck className="h-8 w-8 text-primary" />, title: "Worldwide Shipping", desc: "Express delivery to your door" },
+            { icon: <ShieldCheck className="h-8 w-8 text-primary" />, title: "Secure Payments", desc: "Fully encrypted transaction" },
+            { icon: <Star className="h-8 w-8 text-primary" />, title: "Vetted Suppliers", desc: "Top-rated Alibaba partners" }
           ].map((feature, i) => (
             <div key={i} className="flex flex-col items-center text-center gap-3">
               {feature.icon}
@@ -106,35 +105,11 @@ export default function LandingPage() {
               </Button>
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Promo Banner Section */}
-      <section className="container-standard">
-        <div className="relative h-[400px] w-full overflow-hidden rounded-3xl">
-          <img
-            src="https://images.unsplash.com/photo-1573408339375-f9ad8603af7e?q=80&w=2070&auto=format&fit=crop"
-            alt="Promotion"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-deep-slate/60" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 gap-6">
-            <Badge className="bg-white text-deep-slate font-black text-sm px-4 py-1">LIMITED TIME OFFER</Badge>
-            <h2 className="text-5xl font-black text-white md:text-7xl">SALE 50% OFF</h2>
-            <p className="max-w-md text-white italic text-lg">
-              "Elegance is the only beauty that never fades." - Audrey Hepburn
-            </p>
-            <Link to="/shop">
-              <Button size="lg" className="h-14 px-10 bg-white text-deep-slate hover:bg-ice-blue font-bold text-lg shadow-xl transition-all hover:scale-105">
-                Redeem Offer
-              </Button>
-            </Link>
           </div>
         </div>
       </section>

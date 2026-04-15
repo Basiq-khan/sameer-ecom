@@ -10,7 +10,7 @@ export default function AboutPage() {
         <img
           src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=2070&auto=format&fit=crop"
           className="absolute inset-0 w-full h-full object-cover scale-105 brightness-[0.65]"
-          alt="Jewellery Craftsmanship"
+          alt="Global Marketplace Innovation"
         />
         <div className="relative z-10 text-center space-y-6 px-4">
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-soft-sky">Our Heritage</p>
@@ -27,10 +27,10 @@ export default function AboutPage() {
                 <div className="h-1.5 w-24 bg-soft-sky rounded-full" />
             </div>
             <p className="text-muted-foreground leading-relaxed italic text-lg text-justify">
-                Founded in the pursuit of perfection, Sameer Ecom is more than a boutique — it is a sanctuary for those who appreciate the finer details of existence. Our journey began with a simple belief: that jewellery should not just be worn, but lived in.
+                Founded with a vision for global connectivity, Cubicus Store is more than just a destination — it is a bridge between world-class manufacturers and the modern consumer. Our journey began with a simple belief: that high-quality, innovative products should be accessible to everyone, anywhere.
             </p>
             <p className="text-muted-foreground leading-relaxed italic text-lg text-justify">
-                Each gemstone is hand-selected, and every curve is meticulously carved by master artisans who have dedicated their lives to the mastery of precious metals. From the minimalist teardrop to the ornate cameo, our collection is an editorial on grace.
+                Every item in our collection is meticulously vetted for engineering excellence and aesthetic appeal. From cutting-edge electronics to sustainable home essentials, we curate only the best trending products that define the lifestyle of tomorrow.
             </p>
             <div className="grid grid-cols-2 gap-8 pt-6">
                 <div className="space-y-2">
@@ -57,9 +57,9 @@ export default function AboutPage() {
       <section className="bg-deep-slate py-24 text-white">
         <div className="container-standard grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
             {[
-                { icon: <Star className="h-10 w-10 text-soft-sky mx-auto" />, title: "Timeless Design", desc: "Aesthetic directions that remain relevant across generations." },
-                { icon: <Heart className="h-10 w-10 text-soft-sky mx-auto" />, title: "Soulful Spirit", desc: "Jewellery with an aura of mindfulness and spiritual depth." },
-                { icon: <ShieldCheck className="h-10 w-10 text-soft-sky mx-auto" />, title: "Pure Assurance", desc: "Lifetime warranty on the craftsmanship of every vault entry." }
+                { icon: <Star className="h-10 w-10 text-soft-sky mx-auto" />, title: "Engineering Excellence", desc: "Products selected for superior build quality and performance." },
+                { icon: <Heart className="h-10 w-10 text-soft-sky mx-auto" />, title: "Customer Centric", desc: "Dedicated support team ensuring a seamless global shopping journey." },
+                { icon: <ShieldCheck className="h-10 w-10 text-soft-sky mx-auto" />, title: "Secure Verified", desc: "Every transaction and product source is verified for your peace of mind." }
             ].map((v, i) => (
                 <div key={i} className="space-y-4 px-4 group">
                     <div className="transition-transform duration-500 group-hover:scale-110">{v.icon}</div>

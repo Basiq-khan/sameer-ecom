@@ -10,14 +10,14 @@ export default function ContactPage() {
         {/* Contact Information Sidebar */}
         <div className="flex-1 space-y-12">
           <div className="space-y-4">
-            <h1 className="text-5xl font-black text-deep-slate italic leading-tight tracking-tight uppercase">Concierge Assistance</h1>
-            <p className="text-muted-foreground italic text-lg max-w-lg">"Your journey with Sameer Ecom is a symphony of service. Allow our dedicated experts to curate your experience."</p>
+            <h1 className="text-5xl font-black text-deep-slate italic leading-tight tracking-tight uppercase">Support Center</h1>
+            <p className="text-muted-foreground italic text-lg max-w-lg">"Your journey with Cubicus Store is a commitment to quality. Our dedicated experts are here to assist you with every request."</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
             {[
                 { icon: <Phone className="h-6 w-6 text-soft-sky" />, title: "Voice Call", detail: "+1 (555) 123-4567" },
-                { icon: <Mail className="h-6 w-6 text-soft-sky" />, title: "Secure Email", detail: "hello@sameerecom.com" },
+                { icon: <Mail className="h-6 w-6 text-soft-sky" />, title: "Secure Email", detail: "hello@cubicus.store" },
                 { icon: <MapPin className="h-6 w-6 text-soft-sky" />, title: "Identity Vault", detail: "123 Luxury Lane, New York, NY 10001" },
                 { icon: <Clock className="h-6 w-6 text-soft-sky" />, title: "Available Hours", detail: "Mon - Sat: 10AM - 8PM EST" }
             ].map((c, i) => (

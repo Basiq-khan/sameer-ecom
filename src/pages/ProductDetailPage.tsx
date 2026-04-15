@@ -25,13 +25,42 @@ import {
 } from "@/components/ui/carousel";
 import { products } from "@/data/product";
 import { shipping, returns } from "@/data/shipping-and-return";
+import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
+import { cn } from "@/lib/utils";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
+  const { addToCart } = useCart();
+  const { toggleWishlist, isInWishlist } = useWishlist();
   const product = products.find((p) => p.id === Number(id)) || products[0];
   const [quantity, setQuantity] = useState(1);
 
   if (!product) return <div>Product Not Found</div>;
+
+  const handleAddToCart = () => {
+    if (!product.availability) return;
+    
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.images[0],
+      quantity: quantity,
+    });
+  };
+
+  const handleToggleWishlist = () => {
+    toggleWishlist({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.images[0],
+      productType: product.productType,
+    });
+  };
+
+  const isFavorited = isInWishlist(product.id);
 
   return (
     <div className="container-standard py-10">
@@ -138,13 +167,26 @@ export default function ProductDetailPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button size="lg" className="flex-[2] h-14 bg-primary text-primary-foreground font-black text-lg gap-3 rounded-full shadow-xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]">
+            <Button 
+              size="lg" 
+              className="flex-[2] h-14 bg-primary text-primary-foreground font-black text-lg gap-3 rounded-full shadow-xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              onClick={handleAddToCart}
+              disabled={!product.availability}
+            >
                 <ShoppingCart className="h-5 w-5" />
                 ADD TO CART - ${(product.price * quantity).toFixed(2)}
             </Button>
-            <Button variant="outline" size="lg" className="flex-1 h-14 rounded-full border-border hover:bg-muted font-bold text-deep-slate uppercase tracking-wider">
-                <Heart className="h-5 w-5 mr-2" />
-                Wishlist
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className={cn(
+                "flex-1 h-14 rounded-full border-border font-bold uppercase tracking-wider transition-all",
+                isFavorited ? "bg-primary text-white border-primary" : "text-deep-slate hover:bg-muted"
+              )}
+              onClick={handleToggleWishlist}
+            >
+                <Heart className={cn("h-5 w-5 mr-2", isFavorited && "fill-current")} />
+                {isFavorited ? "Liked" : "Wishlist"}
             </Button>
           </div>
 
