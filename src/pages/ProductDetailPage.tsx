@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
-import { Card } from "@/components/ui/card";
+import ProductCard from "@/components/ProductCard";
 import {
   Carousel,
   CarouselContent,
@@ -288,17 +288,9 @@ export default function ProductDetailPage() {
             <h2 className="text-3xl font-black text-deep-slate tracking-tight uppercase">You May Also Like</h2>
             <div className="h-1.5 w-20 bg-soft-sky rounded-full" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[...products, ...products].slice(0, 4).map((p, i) => (
-                <div key={i} className="hover:-translate-y-2 transition-transform">
-                    <Card className="overflow-hidden border-none shadow-none bg-transparent group">
-                        <div className="aspect-square rounded-2xl overflow-hidden mb-4 bg-muted">
-                            <img src={p.images[0]} className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                        </div>
-                        <h3 className="font-bold text-deep-slate group-hover:text-primary transition-colors italic">{p.title}</h3>
-                        <p className="text-primary font-black">${p.price}</p>
-                    </Card>
-                </div>
+                <ProductCard key={i} product={p} />
             ))}
         </div>
       </section>

@@ -15,7 +15,7 @@ export default function Footer() {
               CUBICUS<span className="text-muted-foreground">STORE</span>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
-              Your gateway to the world's trending products. From tech gadgets to eco-friendly home goods, we source the best from Alibaba's global marketplace.
+              Your gateway to the world's most elegant jewelry. From brilliant diamonds to elegant everyday wear, we craft the finest pieces.
             </p>
             <div className="flex gap-4">
               <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 text-white border-0">
@@ -47,15 +47,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <MapPin className="h-5 w-5 text-soft-sky" />
-                123 Luxury Lane, New York, NY 10001
+                1766 Rue Goyer Laval, H7T-1M5 Quebec, Canada
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <Phone className="h-5 w-5 text-soft-sky" />
-                +1 (555) 123-4567
+                +1 239 516 4440
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <Mail className="h-5 w-5 text-soft-sky" />
-                hello@cubicus.store
+                info@shopcubicus.com
               </li>
             </ul>
           </div>
@@ -82,7 +82,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
-          <p>© 2024 CUBICUS STORE. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CUBICUS STORE. All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white">Terms of Service</Link>

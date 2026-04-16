@@ -17,11 +17,13 @@ import CheckoutPage from "@/pages/CheckoutPage";
 import WishlistPage from "@/pages/WishlistPage";
 import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
+import ScrollToTop from "@/components/ScrollToTop";
 
 function App() {
   return (
     <CartProvider>
       <WishlistProvider>
+        <ScrollToTop />
         <div className="flex min-h-screen flex-col bg-background selection:bg-deep-slate selection:text-white">
           <TopBar />
           <Navbar />

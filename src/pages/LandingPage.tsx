@@ -13,16 +13,16 @@ import { products } from "@/data/product";
 
 const HERO_SLIDES = [
   {
-    title: "Premium Tech & Lifestyle",
-    subtitle: "Discover the Most Reliable and High-Demand Products from Our Global Partners",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    cta: "Shop The Curated List",
+    title: "Premium Jewelry & Accessories",
+    subtitle: "Discover Exclusive Collections and Fine Craftsmanship from Our Global Artisans",
+    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070&auto=format&fit=crop",
+    cta: "Shop The Collection",
   },
   {
-    title: "Sustainable Daily Essentials",
-    subtitle: "Eco-Friendly Innovations Crafted for the Modern Minimalist",
-    image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=2070&auto=format&fit=crop",
-    cta: "View Collection",
+    title: "Timeless Elegance Everyday",
+    subtitle: "Luxurious Adornments Crafted for the Modern Aesthetic",
+    image: "https://images.unsplash.com/photo-1509941943102-10c232535736?q=80&w=2070&auto=format&fit=crop",
+    cta: "View New Arrivals",
   },
 ];
 

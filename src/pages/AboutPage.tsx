@@ -30,7 +30,7 @@ export default function AboutPage() {
                 Founded with a vision for global connectivity, Cubicus Store is more than just a destination — it is a bridge between world-class manufacturers and the modern consumer. Our journey began with a simple belief: that high-quality, innovative products should be accessible to everyone, anywhere.
             </p>
             <p className="text-muted-foreground leading-relaxed italic text-lg text-justify">
-                Every item in our collection is meticulously vetted for engineering excellence and aesthetic appeal. From cutting-edge electronics to sustainable home essentials, we curate only the best trending products that define the lifestyle of tomorrow.
+                Every item in our collection is meticulously crafted for excellence and aesthetic appeal. From dazzling diamonds to exquisite handcrafted gold, we curate only the finest jewelry that defines elegance.
             </p>
             <div className="grid grid-cols-2 gap-8 pt-6">
                 <div className="space-y-2">
@@ -57,7 +57,7 @@ export default function AboutPage() {
       <section className="bg-deep-slate py-24 text-white">
         <div className="container-standard grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
             {[
-                { icon: <Star className="h-10 w-10 text-soft-sky mx-auto" />, title: "Engineering Excellence", desc: "Products selected for superior build quality and performance." },
+                { icon: <Star className="h-10 w-10 text-soft-sky mx-auto" />, title: "Craftsmanship Excellence", desc: "Jewelry crafted for superior beauty and durability." },
                 { icon: <Heart className="h-10 w-10 text-soft-sky mx-auto" />, title: "Customer Centric", desc: "Dedicated support team ensuring a seamless global shopping journey." },
                 { icon: <ShieldCheck className="h-10 w-10 text-soft-sky mx-auto" />, title: "Secure Verified", desc: "Every transaction and product source is verified for your peace of mind." }
             ].map((v, i) => (

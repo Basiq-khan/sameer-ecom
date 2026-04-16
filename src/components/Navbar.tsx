@@ -25,11 +25,11 @@ import { useWishlist } from "@/context/WishlistContext";
 const SHOP_CATEGORIES = [
   {
     title: "Categories",
-    items: ["Electronics", "Home & Garden", "Health & Beauty", "Sports & Fashion"],
+    items: ["Rings", "Necklaces", "Earrings", "Bracelets", "Watches"],
   },
   {
     title: "Trending",
-    items: ["Best Sellers", "New Arrivals", "Flash Sales", "Gift Ideas"],
+    items: ["Best Sellers", "New Arrivals", "Bridal Collection", "Gift Ideas"],
   },
 ];
 

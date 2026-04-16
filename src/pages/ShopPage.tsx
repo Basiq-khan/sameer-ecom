@@ -15,16 +15,17 @@ import { cn } from "@/lib/utils";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/product";
 
-const MATERIALS = ["ABS", "Silicone", "Aluminum Alloy", "Polycarbonate", "Fabric", "Steel", "Resin", "Natural Crystal", "Bamboo"];
-const STYLES = ["Modern", "Tech", "Minimalist", "Utility", "Essential", "Gaming", "Pro", "Eco-Friendly", "Beauty", "Athleisure", "Sporty", "Outdoor"];
-const CATEGORIES = ["Electronics", "Home & Garden", "Health & Beauty", "Sports & Fashion"];
+const MATERIALS = ["Gold", "Silver", "Platinum", "Diamond", "Pearl", "Sapphire", "Titanium", "Ruby"];
+const STYLES = ["Classic", "Modern", "Vintage", "Minimalist", "Bridal", "Luxury", "Everyday", "Statement"];
+const CATEGORIES = ["Rings", "Necklaces", "Earrings", "Bracelets", "Watches"];
 
 export default function ShopPage() {
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [priceRange, setPriceRange] = useState([0, 500]);
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedStyles, setSelectedStyles] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<"featured" | "price-low" | "price-high">("featured");
+  const [viewLayout, setViewLayout] = useState<"grid" | "list">("grid");
 
   const toggleMaterial = (material: string) => {
     setSelectedMaterials((prev) =>
@@ -48,16 +49,16 @@ export default function ShopPage() {
     setSelectedMaterials([]);
     setSelectedCategories([]);
     setSelectedStyles([]);
-    setPriceRange([0, 100]);
+    setPriceRange([0, 500]);
   };
 
   // FILTERING LOGIC
   const filteredProducts = useMemo(() => {
     let result = products.filter((product) => {
-      // Category Filter (Jewellery is treated as a catch-all)
+      // Category Filter
       if (selectedCategories.length > 0) {
         const matchesCategory = selectedCategories.some(c => 
-            c === "All" || product.productType === c
+            c === "All" || product.productType === c || product.title.includes(c.slice(0, -1)) // rough plural to singular match
         );
         if (!matchesCategory) return false;
       }
@@ -100,7 +101,7 @@ export default function ShopPage() {
               <Filter className="h-5 w-5 text-soft-sky" />
               Filters
             </h2>
-            {(selectedMaterials.length > 0 || selectedCategories.length > 0 || selectedStyles.length > 0 || priceRange[0] !== 0 || priceRange[1] !== 100) && (
+            {(selectedMaterials.length > 0 || selectedCategories.length > 0 || selectedStyles.length > 0 || priceRange[0] !== 0 || priceRange[1] !== 500) && (
               <Button 
                 variant="ghost" 
                 size="sm" 
@@ -156,8 +157,8 @@ export default function ShopPage() {
               </AccordionTrigger>
               <AccordionContent className="pt-6 px-2">
                 <Slider
-                  defaultValue={[0, 100]}
-                  max={200}
+                  defaultValue={[0, 500]}
+                  max={500}
                   step={1}
                   value={priceRange}
                   onValueChange={setPriceRange}
@@ -232,8 +233,22 @@ export default function ShopPage() {
             </div>
             <div className="flex items-center gap-4">
               <div className="hidden md:flex items-center bg-muted rounded-lg p-1.5 gap-1 border">
-                <Button variant="ghost" size="icon" className="h-8 w-8 bg-white shadow-sm border"><Grid2X2 className="h-4 w-4" /></Button>
-                <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground"><ListFilter className="h-4 w-4" /></Button>
+                <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className={cn("h-8 w-8 shadow-sm border transition-all", viewLayout === "grid" ? "bg-white text-deep-slate" : "text-muted-foreground bg-transparent border-transparent")}
+                    onClick={() => setViewLayout("grid")}
+                >
+                    <Grid2X2 className="h-4 w-4" />
+                </Button>
+                <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className={cn("h-8 w-8 shadow-sm border transition-all", viewLayout === "list" ? "bg-white text-deep-slate" : "text-muted-foreground bg-transparent border-transparent")}
+                    onClick={() => setViewLayout("list")}
+                >
+                    <ListFilter className="h-4 w-4" />
+                </Button>
               </div>
               <div className="relative group">
                 <Button 
@@ -268,9 +283,14 @@ export default function ShopPage() {
 
           {/* Product Grid */}
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8">
+            <div className={cn(
+                "grid gap-y-12 gap-x-8",
+                viewLayout === "grid" 
+                  ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3" 
+                  : "grid-cols-1 max-w-4xl"
+            )}>
               {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} layout={viewLayout} />
               ))}
             </div>
           ) : (

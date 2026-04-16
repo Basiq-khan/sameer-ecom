@@ -17,9 +17,10 @@ interface ProductCardProps {
     productType: string;
     color?: string[];
   };
+  layout?: "grid" | "list";
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, layout = "grid" }: ProductCardProps) {
   const { addToCart } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
 
@@ -52,8 +53,14 @@ export default function ProductCard({ product }: ProductCardProps) {
   const isFavorited = isInWishlist(product.id);
 
   return (
-    <Card className="group relative border-none bg-transparent p-0 transition-all duration-500 hover:shadow-none translate-y-0 hover:-translate-y-2">
-      <Link to={`/product/${product.id}`} className="block relative aspect-[4/5] overflow-hidden rounded-2xl bg-ice-blue ring-1 ring-black/5 group-hover:ring-primary/20 transition-all duration-500">
+    <Card className={cn(
+        "group relative border-none bg-transparent p-0 transition-all duration-500 hover:shadow-none translate-y-0 hover:-translate-y-2",
+        layout === "list" && "flex flex-col sm:flex-row items-center gap-6 sm:gap-8 bg-muted/30 p-4 rounded-3xl"
+    )}>
+      <Link to={`/product/${product.id}`} className={cn(
+          "block relative overflow-hidden bg-ice-blue ring-1 ring-black/5 group-hover:ring-primary/20 transition-all duration-500 rounded-2xl w-full sm:w-auto",
+          layout === "grid" ? "aspect-[4/5]" : "aspect-[4/5] sm:h-56 sm:w-48 shrink-0"
+      )}>
         {/* Main Product Image */}
         <img
           src={product.images[0]}
@@ -110,15 +117,18 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Quick View Button (Slide Up) */}
-        <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-30 hidden sm:block">
-          <div className="bg-white/90 backdrop-blur-lg rounded-xl p-3 shadow-2xl flex items-center justify-between gap-3 border border-white/50">
+        <div className={cn(
+            "absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-30 sm:block",
+            layout === "grid" ? "hidden" : "hidden" // It is still hidden on mobile according to original, let's keep it same
+        )}>
+          <div className="bg-white/90 backdrop-blur-lg rounded-xl p-3 shadow-2xl flex flex-row items-center justify-between gap-3 border border-white/50">
             <span className="text-[10px] font-black uppercase tracking-widest text-deep-slate truncate">QUICK VIEW</span>
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse shrink-0" />
           </div>
         </div>
       </Link>
 
-      <div className="px-5 pb-5 space-y-2">
+      <div className={cn("space-y-2 w-full", layout === "grid" ? "px-5 pb-5 mt-4" : "flex-1 flex flex-col justify-center py-2 sm:py-6")}>
         <div className="flex items-center justify-between">
           <p className="text-[9px] font-black uppercase tracking-[0.2em] text-soft-sky">
             {product.productType}

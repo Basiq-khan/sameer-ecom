@@ -1,5 +1,5 @@
 export default function TopBar() {
-  const message = "🌎 GLOBAL SHIPPING ON ALL ORDERS ✨ 30-DAY HASSLE-FREE RETURNS ✨ TRENDING TECH & LIFESTYLE ESSENTIALS ✨ 24/7 CUSTOMER SUPPORT 🌎";
+  const message = "🌎 GLOBAL INSURED SHIPPING ON ALL ORDERS ✨ 30-DAY HASSLE-FREE RETURNS ✨ PREMIUM FINE JEWELRY & CRAFTSMANSHIP ✨ 24/7 CUSTOMER SUPPORT 🌎";
 
   return (
     <div className="relative w-full bg-primary overflow-hidden py-2.5">

@@ -16,9 +16,9 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
             {[
-                { icon: <Phone className="h-6 w-6 text-soft-sky" />, title: "Voice Call", detail: "+1 (555) 123-4567" },
-                { icon: <Mail className="h-6 w-6 text-soft-sky" />, title: "Secure Email", detail: "hello@cubicus.store" },
-                { icon: <MapPin className="h-6 w-6 text-soft-sky" />, title: "Identity Vault", detail: "123 Luxury Lane, New York, NY 10001" },
+                { icon: <Phone className="h-6 w-6 text-soft-sky" />, title: "Voice Call", detail: "+1 239 516 4440" },
+                { icon: <Mail className="h-6 w-6 text-soft-sky" />, title: "Secure Email", detail: "info@shopcubicus.com" },
+                { icon: <MapPin className="h-6 w-6 text-soft-sky" />, title: "Identity Vault", detail: "1766 Rue Goyer Laval, H7T-1M5 Quebec, Canada" },
                 { icon: <Clock className="h-6 w-6 text-soft-sky" />, title: "Available Hours", detail: "Mon - Sat: 10AM - 8PM EST" }
             ].map((c, i) => (
                 <div key={i} className="flex gap-4 group">
